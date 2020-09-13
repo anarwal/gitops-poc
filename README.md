@@ -7,3 +7,4 @@ This projects uses following resources:
 2. Github Actions
 3. GKE 
 4. Flux operator
+5. Google container register
