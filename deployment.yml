@@ -2,13 +2,21 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: gitops-test
+  namespace: demo
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.init: regex:^3.10.*
+    fluxcd.io/tag.podinfod: semver:~3.1
 spec:
   replicas: 1
   strategy:
     rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+      maxUnavailable: 0
+    type: RollingUpdate
   minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: gitops-test
   template:
     metadata:
       labels:
