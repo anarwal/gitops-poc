@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: gitops-test
-        image: gcr.io/gitops-poc/static-site
+        image: gcr.io/python-gitops-test/static-site
         ports:
         - containerPort: 3000
         resources:
